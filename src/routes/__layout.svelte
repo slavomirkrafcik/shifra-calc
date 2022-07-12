@@ -37,7 +37,7 @@
 </script>
 
 <header class="">
-  <div class="py-3 navbar navbar-dark bg-white">
+  <div class="py-3 navbar navbar-dark bg-light">
     <div class="container">
       <a
         href="/"
@@ -45,7 +45,7 @@
       >
         <img
           src="https://www.absolventi.stuba.sk/dokumenty/firmy/loga_web/met_slovakia_as_logo.jpg"
-          alt=""
+          alt="sse-logo"
           width="80"
         />
       </a>
@@ -57,7 +57,9 @@
               type="button"
               on:click={logout}
             >
-              Odhlasit uzivatela: {JSON.stringify($user.name)}
+              Odhlasit uzivatela: {JSON.stringify($user.name)
+                .slice(1)
+                .slice(0, $user.name.length - 1)}
             </button>
           </a>
         {/if}
