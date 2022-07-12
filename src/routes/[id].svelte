@@ -19,6 +19,10 @@
   }
 </script>
 
+<div class="contanier d-flex justify-content-center ">
+  <h4>Prehľad ponúk -</h4>
+</div>
+
 <div class="card-group mt-5">
   <div class="card">
     <div class="card-body">
@@ -265,7 +269,7 @@
 </div>
 <!-- KONIEC:Zoznam ponúk INDEX  -->
 <!-- ZACIATOK:Otvorené opportunity iné komodity -->
-<div class="card mt-2" style="background-color: #e6ffe6;">
+<div class="card mt-2" style="background-color: #e3f6dd;">
   <div class="card-body">
     <div class="card-title d-flex mb-3">
       <div class="me-auto p-2">
