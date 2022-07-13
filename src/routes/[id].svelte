@@ -37,7 +37,7 @@
         Vlastníctvo:
       </p>
     </div>
-    <div class="card-footer">
+    <div class="card-footer bg-white">
       <button class="h-0 btn btn-outline-secondary align-bottom" type="button"
         >Otvoriť PDOIO</button
       >
@@ -56,7 +56,7 @@
           Email:
         </p>
       </div>
-      <div class="card-footer">
+      <div class="card-footer bg-white">
         <button
           class="h-0 btn btn-outline-secondary align-bottom"
           type="button"

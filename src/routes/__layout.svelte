@@ -37,7 +37,7 @@
 </script>
 
 <header class="">
-  <div class="py-3 navbar navbar-dark bg-light">
+  <div class="py-3 navbar navbar-dark bg-white">
     <div class="container">
       <a
         href="/"
