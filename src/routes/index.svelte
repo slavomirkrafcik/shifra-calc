@@ -58,7 +58,7 @@
             placeholder="Item_id"
             aria-describedby="button-addon2"
           />
-          <a href="/item/{itemId}">
+          <a href="/{itemId}">
             <button
               class="btn btn-outline-secondary"
               type="button"

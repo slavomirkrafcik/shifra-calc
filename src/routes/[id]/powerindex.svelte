@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center">
-  <h4>GAS</h4>
+  <h4>EE - Index</h4>
 </div>
 
 <!-- ZACIATOK:Číslo ponuky -->
@@ -28,13 +28,25 @@
             </div>
           </div>
           <p class="mb-0">RZM MWh (MO):</p>
-          <p class="mb-0">Počet OM (SO/VO):</p>
-          <div class="d-flex">
-            <div class="w-75">
-              <p class="mb-0">RZM MWh (SO /VO):</p>
+          <div class="d-flex align-items-center">
+            <div class="w-75 flex-grow-1">
+              <p class="mb-0">Počet OM (SO/VO):</p>
             </div>
-            <div class="w-25"><p class="mb-0">DMM:</p></div>
+            <div class="w-25 flex-shrink-0">
+              <p class="mb-0">
+                <button
+                  class="h-0 btn btn-outline-secondary btn-sm "
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#diagram"
+                >
+                  Diagram Spotreby
+                </button>
+              </p>
+            </div>
           </div>
+          <p class="mb-0" />
+          <p class="mb-0">RZM MWh (SO /VO):</p>
         </div>
       </div>
       <div class="card">
@@ -59,20 +71,36 @@
           </div>
           <p class="mb-0">RZM MWh (MO):</p>
           <p class="mb-0">Počet OM (SO):</p>
-          <div class="d-flex">
-            <div class="w-75">
-              <p class="mb-0">RZM MWh (VO):</p>
-            </div>
-            <div class="w-25"><p class="mb-0">DMM:</p></div>
-          </div>
+          <p class="mb-0">RZM MWh (VO):</p>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Údaje</h5>
-          <p class="mb-0">Začiatok dodávky:</p>
-          <p class="mb-0">Koniec dodávky:</p>
-          <p class="mb-0">Umiestnenie v MDS: nie je / je</p>
+          <div class="d-flex">
+            <div class="w-60" style="width: 60%;">
+              <p class="mb-0">Začiatok dodávky:</p>
+            </div>
+            <div class="w-40" style="width: 40%;"><p class="mb-0">DA:</p></div>
+          </div>
+          <div class="d-flex">
+            <div class="w-60" style="width: 60%;">
+              <p class="mb-0">Koniec dodávky:</p>
+            </div>
+            <div class="w-40" style="width: 40%;">
+              <p class="mb-0">Fix. množstvo:</p>
+            </div>
+          </div>
+          <div class="d-flex mb-0">
+            <div class="w-60" style="width: 60%;">
+              <p class="mb-0">ToP min. :</p>
+            </div>
+            <div class="w-40" style="width: 40%;">
+              <p class="mb-0">Umiestnenie:</p>
+            </div>
+          </div>
+          <p class="mb-0">ToP max: %</p>
+
           <div class="d-flex align-items-center">
             <div class="w-75 flex-grow-1">
               <p class="mb-0">Dátum platnosti ponuky:</p>
@@ -99,74 +127,71 @@
   <div class="card-body">
     <div class="d-flex mb-3">
       <div class="me-auto d-flex mr-5">
-        <h5 class="pe-4">Výpočet ceny nákupu</h5>
-        <p class="pe-2">Cena nákup : Best ask / Individuálne nacenenie</p>
+        <p class="pe-2">Výber ceny: Ročne / Priemer / Ročne + priemer</p>
       </div>
       <div class="pe-2">
         <button class="h-0 btn btn-outline-secondary btn-sm " type="button">
           Požiadať o ceny / Čaká sa na cenu /Ceny dodané
         </button>
       </div>
-      <div class="">
-        <button
-          class="h-0 btn btn-outline-secondary btn-sm "
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#bestAsk"
-        >
-          Zobraziť Best ask ceny
-        </button>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col"><p>Spôsob nacenenia: CAL / Q-M / DA</p></div>
+        <div class="col"><p>% Pomer VT : ....100%..</p></div>
+        <div class="col"><p>ZE : Áno/Nie</p></div>
       </div>
     </div>
-    <p>Výber ceny: Ročne / Priemer / Ročne + priemer</p>
+
     <table
       class="table table-bordered border"
       style="background-color: white; "
     >
       <thead>
         <tr>
-          <th scope="col">Produkt Best Ask (BA)</th>
+          <th scope="col">Produkt INDEX</th>
           <th scope="col">Produkt pre Obdobie</th>
-          <th scope="col">Objem (MWh)</th>
-          <th scope="col">Cena nákup (€/MWh)</th>
-          <th scope="col">Sourcing plat. podmienky (€/MWh)</th>
-          <th scope="col">Sourcing flexibilita (€/MWh)</th>
-          <th scope="col">Cená nákupu celkom (€/MWh)</th>
+          <th scope="col">Objem JT/VT(MWh)</th>
+          <th scope="col">Objem NT(MWh)</th>
+          <th scope="col">Cena nákup JT/VT (€/MWh)</th>
+          <th scope="col">Cena nákup NT (€/MWh)</th>
+          <th scope="col">Nákup certifikátu ZE (€/MWh)</th>
+          <th scope="col">Cena nákup celkom (€/MWh)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Ba +0</td>
+          <td>INDEX Cal/Q-M/DA +0</td>
           <td>2022</td>
-          <td />
+          <td>Celý objem (ak bude 100%)</td>
           <td>50</td>
           <td />
           <td />
           <td />
         </tr>
         <tr>
-          <td>Ba +1</td>
+          <td>INDEX Cal/Q-M/DA +1</td>
           <td>2023</td>
+          <td>Celý objem (ak bude 100%)</td>
+          <td>50</td>
           <td />
-          <td>65$</td>
           <td />
           <td />
-          <td>65</td>
         </tr>
         <tr>
-          <td>Ba +2</td>
+          <td>INDEX Cal/Q-M/DA +2</td>
           <td>2024</td>
-          <td />
-          <td />
+          <td>Celý objem (ak bude 100%)</td>
+          <td>50</td>
           <td />
           <td />
           <td />
         </tr>
         <tr>
-          <td>Ba +3</td>
+          <td>INDEX Cal/Q-M/DA +3</td>
           <td>2025</td>
-          <td />
-          <td />
+          <td>Celý objem (ak bude 100%)</td>
+          <td>50</td>
           <td />
           <td />
           <td />
@@ -179,19 +204,20 @@
     >
       <thead>
         <tr>
-          <th scope="col">Produkt Best Ask (BA)</th>
+          <th scope="col">Produkt INDEX</th>
           <th scope="col">Produkt pre Obdobie</th>
-          <th scope="col">Objem (MWh)</th>
-          <th scope="col">Cena nákup (€/MWh)</th>
-          <th scope="col">Sourcing plat. podmienky (€/MWh)</th>
-          <th scope="col">Sourcing plat. podmienky (€/MWh)</th>
-          <th scope="col">Cená nákupu celkom (€/MWh)</th>
+          <th scope="col">Objem JT/VT(MWh)</th>
+          <th scope="col">Objem NT(MWh)</th>
+          <th scope="col">Cena nákup JT/VT (€/MWh)</th>
+          <th scope="col">Cena nákup NT (€/MWh)</th>
+          <th scope="col">Nákup certifikátu ZE (€/MWh)</th>
+          <th scope="col">Cena nákup celkom (€/MWh)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Ba Cal Priemer pre celé obdobie</td>
-          <td />
+          <td>INDEX Cal/Q-M/DA Priemer pre celé obdobie</td>
+          <td>2022</td>
           <td />
           <td />
           <td />
@@ -213,20 +239,22 @@
     >
       <thead>
         <tr>
-          <th scope="col">Produkt Best Ask (BA)</th>
+          <th scope="col">Produkt PXE</th>
           <th scope="col">Predajna cena spolu (€/MWh)</th>
-          <th scope="col">Cenu za komoditu (FIX) (€/MWh)</th>
-          <th scope="col">+ pridať cenu (variabil. cenu)</th>
+          <th scope="col">Cenu za komoditu JT/VT(FIX) (€/MWh)</th>
+          <th scope="col">Cenu za komoditu NT(FIX) (€/MWh)</th>
+          <th scope="col">Predajná cena certifikátu ZE (€/MWh)</th>
+          <th scope="col">+pridať cenu (variabil. cenu)</th>
           <th scope="col">+ pridať cenu (Fixná sadzba (Eur/mes.)</th>
-          <th scope="col">+ pridať iné náklady var. sadzba</th>
-          <th scope="col">+ pridať iné náklady fixná. sadzba</th>
+          <th class="col">+ pridať iné náklady var. sadzba</th>
+          <th class="col">+ pridať iné náklady fixná. sadzba</th>
           <th class="col">Iný zisk var. sadzba (Eur/MWh)</th>
           <th class="col">Iný zisk fixná sadzba (Eur/MWh)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Ba +0</td>
+          <td>INDEX Cal/Q-M/DA +0</td>
           <td>2022</td>
           <td />
           <td>50</td>
@@ -235,7 +263,7 @@
           <td />
         </tr>
         <tr>
-          <td>Ba +1</td>
+          <td>INDEX Cal/Q-M/DA +1</td>
           <td>2023</td>
           <td />
           <td>65$</td>
@@ -244,7 +272,7 @@
           <td>65</td>
         </tr>
         <tr>
-          <td>Ba +2</td>
+          <td>INDEX Cal/Q-M/DA +2</td>
           <td>2024</td>
           <td />
           <td />
@@ -253,7 +281,7 @@
           <td />
         </tr>
         <tr>
-          <td>Ba +3</td>
+          <td>INDEX Cal/Q-M/DA +3</td>
           <td>2025</td>
           <td />
           <td />
@@ -269,20 +297,22 @@
     >
       <thead>
         <tr>
-          <th scope="col">Produkt Best Ask (BA)</th>
+          <th scope="col">Produkt PXE</th>
           <th scope="col">Predajna cena spolu (€/MWh)</th>
-          <th scope="col">Cenu za komoditu (FIX) (€/MWh)</th>
-          <th scope="col">+ pridať cenu (variabil. cenu)</th>
+          <th scope="col">Cenu za komoditu JT/VT(FIX) (€/MWh)</th>
+          <th scope="col">Cenu za komoditu NT(FIX) (€/MWh)</th>
+          <th scope="col">Predajná cena certifikátu ZE (€/MWh)</th>
+          <th scope="col">+pridať cenu (variabil. cenu)</th>
           <th scope="col">+ pridať cenu (Fixná sadzba (Eur/mes.)</th>
-          <th scope="col">+ pridať iné náklady var. sadzba</th>
-          <th scope="col">+ pridať iné náklady fixná. sadzba</th>
+          <th class="col">+ pridať iné náklady var. sadzba</th>
+          <th class="col">+ pridať iné náklady fixná. sadzba</th>
           <th class="col">Iný zisk var. sadzba (Eur/MWh)</th>
           <th class="col">Iný zisk fixná sadzba (Eur/MWh)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Ba Cal Priemer pre celé obdobie</td>
+          <td>INDEX Cal/Q-M/DA Priemer pre celé obdobie</td>
           <td />
           <td />
           <td />
@@ -307,7 +337,7 @@
         >
           <thead>
             <tr>
-              <th scope="col">Produkt Best Ask (BA)</th>
+              <th scope="col">Produkt INDEX</th>
               <th scope="col">Hrubá marža METSK (Eur)</th>
               <th scope="col">Čistá marža METSK (Eur)</th>
               <th scope="col">Čistá marža METSK (Eur/MWh)</th>
@@ -315,25 +345,25 @@
           </thead>
           <tbody>
             <tr>
-              <td>Ba Cal +0</td>
+              <td>INDEX Cal +0</td>
               <td />
               <td />
               <td />
             </tr>
             <tr>
-              <td>Ba Cal +1</td>
+              <td>INDEX Cal +1</td>
               <td />
               <td />
               <td />
             </tr>
             <tr>
-              <td>Ba Cal +2</td>
+              <td>INDEX Cal +2</td>
               <td />
               <td />
               <td />
             </tr>
             <tr>
-              <td>Ba Cal +3</td>
+              <td>INDEX Cal +3</td>
               <td />
               <td />
               <td />
@@ -346,7 +376,7 @@
         >
           <thead>
             <tr>
-              <th scope="col">Produkt Best Ask (BA)</th>
+              <th scope="col">Produkt INDEX</th>
               <th scope="col">Hrubá marža METSK (Eur)</th>
               <th scope="col">Čistá marža METSK (Eur)</th>
               <th scope="col">Čistá marža METSK (Eur/MWh)</th>
@@ -354,7 +384,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>Ba Cal Priemer pre celé obdobie</td>
+              <td>INDEX Cal Priemer pre celé obdobie</td>
               <td />
               <td />
               <td />
@@ -363,26 +393,37 @@
         </table>
       </div>
       <div class="w-50 ps-5 align-self-center">
-        <div class="d-flex align-items-center mb-4">
-          <div class="w-75 flex-grow-1">
-            <p class="mb-0">Distribúcia:</p>
-          </div>
-          <div class="w-25 flex-shrink-0">
-            <p class="mb-0">
-              <button
-                class="h-0 btn btn-outline-secondary btn-sm "
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#vyp"
-              >
-                Výpočet
-              </button>
-            </p>
-          </div>
-        </div>
-        <p class="mb-0">Turnover Gas:</p>
-        <p class="mb-0">Turnover Power:</p>
+        <p class="mb-0">TTurnover:</p>
         <p class="mb-0">TOTAL Turnover:</p>
+        <p class="mb-0">Distribúcia:</p>
+        <p class="mb-0">Distribúcia: 73€/MWh</p>
+        <table
+          class="table table-bordered border mt-2 mb-0"
+          style="background-color: white; "
+        >
+          <thead>
+            <tr>
+              <th scope="col">Sadzba</th>
+              <th scope="col">Počet OM</th>
+              <th scope="col">Objem MWh</th>
+              <th scope="col">Distribúcia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>VN</td>
+              <td />
+              <td>100</td>
+              <td />
+            </tr>
+            <tr>
+              <td>NN</td>
+              <td />
+              <td>2000</td>
+              <td />
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -577,103 +618,6 @@
 <!-- KONIEC:Credit check/risk -->
 
 <!-- Modals -->
-<!-- START:BESTASK -->
-<div
-  class="modal fade"
-  id="bestAsk"
-  tabindex="-1"
-  aria-labelledby="bestAsk"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Best ask ceny</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        />
-      </div>
-      <div class="modal-body">
-        <table
-          class="table table-bordered border mb-0"
-          style="background-color: white; "
-        >
-          <thead>
-            <tr>
-              <th scope="col" colspan="2" />
-              <th scope="col">THE BA</th>
-              <th scope="col" colspan="2">Prirážky (+)</th>
-              <th scope="col" colspan="2">Cena nákup</th>
-            </tr>
-            <tr>
-              <th scope="col" rowspan="2">produkt Best Ask (BA)</th>
-              <th scope="col" rowspan="2">produkt pre obdobie</th>
-              <th scope="col">Int. obchodník</th>
-              <th scope="col">Int. obchodník</th>
-              <th scope="col">ext. obchodník</th>
-              <th scope="col">Int. obchodník</th>
-              <th scope="col">ext. obchodník</th>
-            </tr>
-            <tr>
-              <th scope="col">EUR/MWh</th>
-              <th scope="col">EUR/MWh</th>
-              <th scope="col">EUR/MWh</th>
-              <th scope="col">EUR/MWh</th>
-              <th scope="col">EUR/MWh</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>BA</td>
-              <td>Jun-22</td>
-              <td style="background-color: yellow;">75,00</td>
-              <td>1,50</td>
-              <td style="background-color: yellow;">2</td>
-              <td>76,50</td>
-              <td>77,00</td>
-            </tr>
-            <tr>
-              <td>BA</td>
-              <td>Jun-22</td>
-              <td style="background-color: yellow;">75,00</td>
-              <td>1,50</td>
-              <td style="background-color: yellow;">2</td>
-              <td>76,50</td>
-              <td>77,00</td>
-            </tr>
-            <tr>
-              <td>BA</td>
-              <td>Jun-22</td>
-              <td style="background-color: yellow;">75,00</td>
-              <td>1,50</td>
-              <td style="background-color: yellow;">2</td>
-              <td>76,50</td>
-              <td>77,00</td>
-            </tr>
-            <tr>
-              <td>BA</td>
-              <td>Jun-22</td>
-              <td style="background-color: yellow;">75,00</td>
-              <td>1,50</td>
-              <td style="background-color: yellow;">2</td>
-              <td>76,50</td>
-              <td>77,00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-          >Close</button
-        >
-      </div>
-    </div>
-  </div>
-</div>
-<!-- END:BESTASK  -->
 <!-- START:OM -->
 <div
   class="modal fade"
@@ -701,183 +645,20 @@
           <thead>
             <tr>
               <th scope="col">Sadzba</th>
-              <th scope="col">Objem MWh</th>
               <th scope="col">Počet OM</th>
-              <th scope="col">DMM (SO/VO)</th>
-              <th scope="col">Tradičný odber</th>
-              <th scope="col">Kurenar</th>
-              <th scope="col">Mesiace</th>
-              <th scope="col">Spolu</th>
+              <th scope="col">Objem MWh</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>M (8)</td>
+              <td>VN</td>
+              <td />
               <td>100</td>
-              <td>-</td>
-              <td>-</td>
-              <td>x</td>
-              <td>x</td>
-              <td
-                ><div class="btn-group">
-                  <button
-                    class="btn btn-secondary btn-sm dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Zobraziť
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li class="list-group-item">Jan: %</li>
-                    <li class="list-group-item">Feb: %</li>
-                    <li class="list-group-item">Mar: %</li>
-                    <li class="list-group-item">Apr: %</li>
-                    <li class="list-group-item">Maj: %</li>
-                    <li class="list-group-item">Jun: %</li>
-                    <li class="list-group-item">Jul: %</li>
-                    <li class="list-group-item">Aug: %</li>
-                    <li class="list-group-item">Sep: %</li>
-                    <li class="list-group-item">Okt: %</li>
-                    <li class="list-group-item">Nov: %</li>
-                    <li class="list-group-item">Dec: %</li>
-                  </ul>
-                </div></td
-              >
-              <td>%</td>
-              <td
-                ><button
-                  type="button"
-                  class="btn btn-danger btn-sm"
-                  data-bs-dismiss="modal">Vymazať</button
-                ></td
-              >
             </tr>
             <tr>
-              <td>M (8)</td>
-              <td>100</td>
-              <td>-</td>
-              <td>-</td>
-              <td>x</td>
-              <td>x</td>
-              <td
-                ><div class="btn-group">
-                  <button
-                    class="btn btn-secondary btn-sm dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Zobraziť
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li class="list-group-item">Jan: %</li>
-                    <li class="list-group-item">Feb: %</li>
-                    <li class="list-group-item">Mar: %</li>
-                    <li class="list-group-item">Apr: %</li>
-                    <li class="list-group-item">Maj: %</li>
-                    <li class="list-group-item">Jun: %</li>
-                    <li class="list-group-item">Jul: %</li>
-                    <li class="list-group-item">Aug: %</li>
-                    <li class="list-group-item">Sep: %</li>
-                    <li class="list-group-item">Okt: %</li>
-                    <li class="list-group-item">Nov: %</li>
-                    <li class="list-group-item">Dec: %</li>
-                  </ul>
-                </div></td
-              >
-              <td>%</td>
-              <td
-                ><button
-                  type="button"
-                  class="btn btn-danger btn-sm"
-                  data-bs-dismiss="modal">Vymazať</button
-                ></td
-              >
-            </tr>
-            <tr>
-              <td>M (8)</td>
-              <td>100</td>
-              <td>-</td>
-              <td>-</td>
-              <td>x</td>
-              <td>x</td>
-              <td
-                ><div class="btn-group">
-                  <button
-                    class="btn btn-secondary btn-sm dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Zobraziť
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li class="list-group-item">Jan: %</li>
-                    <li class="list-group-item">Feb: %</li>
-                    <li class="list-group-item">Mar: %</li>
-                    <li class="list-group-item">Apr: %</li>
-                    <li class="list-group-item">Maj: %</li>
-                    <li class="list-group-item">Jun: %</li>
-                    <li class="list-group-item">Jul: %</li>
-                    <li class="list-group-item">Aug: %</li>
-                    <li class="list-group-item">Sep: %</li>
-                    <li class="list-group-item">Okt: %</li>
-                    <li class="list-group-item">Nov: %</li>
-                    <li class="list-group-item">Dec: %</li>
-                  </ul>
-                </div></td
-              >
-              <td>%</td>
-              <td
-                ><button
-                  type="button"
-                  class="btn btn-danger btn-sm"
-                  data-bs-dismiss="modal">Vymazať</button
-                ></td
-              >
-            </tr>
-            <tr>
-              <td>M (8)</td>
-              <td>100</td>
-              <td>-</td>
-              <td>-</td>
-              <td>x</td>
-              <td>x</td>
-              <td
-                ><div class="btn-group">
-                  <button
-                    class="btn btn-secondary btn-sm dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Zobraziť
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li class="list-group-item">Jan: %</li>
-                    <li class="list-group-item">Feb: %</li>
-                    <li class="list-group-item">Mar: %</li>
-                    <li class="list-group-item">Apr: %</li>
-                    <li class="list-group-item">Maj: %</li>
-                    <li class="list-group-item">Jun: %</li>
-                    <li class="list-group-item">Jul: %</li>
-                    <li class="list-group-item">Aug: %</li>
-                    <li class="list-group-item">Sep: %</li>
-                    <li class="list-group-item">Okt: %</li>
-                    <li class="list-group-item">Nov: %</li>
-                    <li class="list-group-item">Dec: %</li>
-                  </ul>
-                </div></td
-              >
-              <td>%</td>
-              <td
-                ><button
-                  type="button"
-                  class="btn btn-danger btn-sm"
-                  data-bs-dismiss="modal">Vymazať</button
-                ></td
-              >
+              <td>NN</td>
+              <td />
+              <td>2000</td>
             </tr>
           </tbody>
         </table>
@@ -891,18 +672,17 @@
   </div>
 </div>
 <!-- END:OM -->
-<!-- ZACIATOK:Vypocet -->
 <div
   class="modal fade"
-  id="vyp"
+  id="diagram"
   tabindex="-1"
-  aria-labelledby="bestAsk"
+  aria-labelledby="diagram"
   aria-hidden="true"
 >
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Výpočet</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Best ask ceny</h5>
         <button
           type="button"
           class="btn-close"
@@ -917,34 +697,21 @@
         >
           <thead>
             <tr>
-              <th scope="col">Sadzba</th>
-              <th scope="col">Počet OM</th>
-              <th scope="col">Objem MWh</th>
-              <th scope="col">DMM (SO/VO)</th>
-              <th scope="col">Cena distribúcia (€/MWh)</th>
+              <th scope="col">Diagram spotreby</th>
+              <th scope="col">Názov</th>
+              <th scope="col">Obdobie</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>M8</td>
-              <td>1</td>
+              <td>Nahrať / Stiahnuť</td>
+              <td>text</td>
               <td>100</td>
-              <td>-</td>
-              <td>Cenník</td>
             </tr>
             <tr>
-              <td>S9</td>
-              <td>2</td>
-              <td>2000</td>
-              <td>-</td>
-              <td>Cenník</td>
-            </tr>
-            <tr>
-              <td>V11</td>
-              <td>1</td>
-              <td>1000</td>
-              <td>-</td>
-              <td>Cenník</td>
+              <td>+ Nahrat</td>
+              <td />
+              <td />
             </tr>
           </tbody>
         </table>
@@ -957,4 +724,3 @@
     </div>
   </div>
 </div>
-<!-- KONIEC:Vypocet -->

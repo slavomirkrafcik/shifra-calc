@@ -59,7 +59,7 @@
             >
               Odhlasit uzivatela: {JSON.stringify($user.name)
                 .slice(1)
-                .slice(0, $user.name.length - 1)}
+                .slice(0, $user.name.length)}
             </button>
           </a>
         {/if}
